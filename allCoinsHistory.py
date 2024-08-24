@@ -74,10 +74,6 @@ for symbol in symbols:
             # Calculate average USDT volume over the last 180 days
             average_usdt_volume_6m = sum(usdt_volumes_6m) / len(usdt_volumes_6m)
             
-            # Calculate volatility as the standard deviation of the daily returns
-            returns = [(prices[i + 1] - prices[i]) / prices[i] for i in range(len(prices) - 1)]
-            volatility = round(pd.Series(returns).std() * 100, 2)  # Convert to percentage and round to 2 decimal places
-            
             # Send the GET request to fetch kline data for 30 days
             response_30d = requests.get(kline_url, params=params_30d)
             data_30d = response_30d.json()
@@ -108,7 +104,6 @@ for symbol in symbols:
                 average_difference_30d,  # Average % Difference (30 days)
                 average_usdt_volume_6m,  # Average Volume in USDT (180 days)
                 current_usdt_volume,  # Current 24H Volume in USDT
-                volatility,  # Volatility
                 current_price  # Current Price
             ))
 
@@ -119,7 +114,6 @@ df_results = pd.DataFrame(results, columns=[
     "Average % Difference (High-Low) - 30 days", 
     "Average Volume (180 days)", 
     "Current Volume (24H)", 
-    "Volatility (6 months)", 
     "Current Price"
 ])
 
@@ -145,7 +139,6 @@ top_50_results["Average % Difference (High-Low) - 6 months"] = top_50_results["A
 top_50_results["Average % Difference (High-Low) - 30 days"] = top_50_results["Average % Difference (High-Low) - 30 days"].apply(lambda x: f"{x:.8f}%" if x is not None else "N/A")
 top_50_results["Average Volume (180 days)"] = top_50_results["Average Volume (180 days)"].apply(format_large_number)
 top_50_results["Current Volume (24H)"] = top_50_results["Current Volume (24H)"].apply(format_large_number)
-top_50_results["Volatility (6 months)"] = top_50_results["Volatility (6 months)"].apply(lambda x: f"{x:.2f}%")
 top_50_results["Current Price"] = top_50_results["Current Price"].apply(lambda x: f"${x:,.8f}")
 
 # Print the formatted data to the console

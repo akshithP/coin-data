@@ -64,7 +64,7 @@ if response.status_code == 200:
     
     # Calculate volatility as the standard deviation of the daily returns
     returns = [(close_prices[i + 1] - close_prices[i]) / close_prices[i] for i in range(len(close_prices) - 1)]
-    volatility = pd.Series(returns).std() * 100  # Convert to percentage
+    # volatility = pd.Series(returns).std() * 100  # Convert to percentage
 
     # Format volumes to millions with commas and dollar signs
     formatted_volumes = [f"${volume / 1_000_000:.2f}M" for volume in volumes]
@@ -82,7 +82,7 @@ if response.status_code == 200:
     
     # Display the DataFrame in a table format
     print(df)
-    print(f"\nVolatility: {volatility:.2f}%")
+    # print(f"\nVolatility: {volatility:.2f}%")
     
     # Plotting
     fig, ax1 = plt.subplots(figsize=(12, 8))
