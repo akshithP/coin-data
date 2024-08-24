@@ -40,3 +40,5 @@ This field represents the total trading volume of the coin in USDT over the last
 - Moderate Volatility (5% - 15%): The coin's price has moderate fluctuations, offering a balance between risk and reward.
 - High Volatility (> 15%): The coin's price fluctuates significantly, offering high-profit potential but also higher risk. Suitable for experienced traders.
 - If the volatility is 10%, it means that the coin's price typically moves by 10% from the average return each day. If you bought a coin at $100, a 10% volatility suggests that the price might swing between $90 and $110 in the short term.
+![image](https://github.com/user-attachments/assets/cb5ba12f-d0cb-41e2-96a4-1f0d6df76c90)
+
