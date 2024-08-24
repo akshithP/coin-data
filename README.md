@@ -24,10 +24,16 @@ This script fetches and analyzes cryptocurrency data from Binance, focusing on m
 ### Installation
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/crypto-coin-analysis.git
+git clone https://github.com/akshithP/coin-data.git
+```
+```
 cd crypto-coin-analysis
 ```
-2. Install the required dependencies:
+2. Set Up a Virtual Environment:
+```
+python -m venv venv
+```
+2. Install the required dependencies: 
 ```
 pip install -r requirements.txt
 ```
